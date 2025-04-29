@@ -50,26 +50,36 @@
     <div>
         <h2>Registro</h2>
         <form action="/registrar" id="form-registro" method="post">
-            <?php if (strlen($mensagem) > 0):?>
+            <?php if (isset($mensagem) && strlen($mensagem) > 0):?>
                 <div id="mensagem">
                     <?= $mensagem ?>
                 </div>
-            <?php endif; ?>
+            <?php endif ?>
+            <?php if (isset($_SESSION['validacoes']) && sizeof($_SESSION['validacoes'])) :?>
+                <div>
+                    <ul>
+                        <li>Por favor revise os dados digitados!</li>
+                        <?php foreach($_SESSION['validacoes'] as $validacao) :?>
+                            <li><?= $validacao ?></li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            <?php endif ?>
             <div class="form">
                 <label for="name">Nome</label>
-                <input type="text" name="nome" placeholder="Digite seu nome" required>
+                <input type="text" name="nome" placeholder="Digite seu nome">
             </div>
             <div class="form">
                 <label for="name">Email</label>
-                <input type="email" name="email" placeholder="Digite seu email" required>
+                <input type="text" name="email" placeholder="Digite seu email">
             </div>
             <div class="form">
                 <label for="email_confirmacao">Confirme seu e-mail</label>
-                <input type="email" name="email_confirmacao" placeholder="Confirme o seu email" required>
+                <input type="text" name="email_confirmacao" placeholder="Confirme o seu email">
             </div>
             <div class="form">
                 <label for="senha">Senha</label>
-                <input type="password" name="senha" placeholder="Digite sua senha" required>
+                <input type="password" name="senha" placeholder="Digite sua senha">
             </div>
             <button type="submit" class="form">Registrar</button>
         </form>
