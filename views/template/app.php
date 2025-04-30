@@ -19,12 +19,20 @@
             <li><a href="/meus-livros">Meus Livros</a></li>
         </ul>
         <ul>
-            <li><a href="/login">Fazer Login</a></li>
+            <?php if(isset($_SESSION['auth'])) :?>
+                <li><a href="/logout">Oi, <?=$_SESSION['auth']->nome?></a></li>
+            <?php endif ?>
+                <li><a href="/login">Fazer Login</a></li>
         </ul>
     </nav>
 </header>
 
 <main>
+    <?php if ($mensagem = flash()->get('mensagem')) :?>
+        <div id="mensagem">
+            <?= $mensagem ?>
+        </div>
+    <?php endif ?>
     <?php require_once "views/{$view}.view.php"; ?>
 </main>
 

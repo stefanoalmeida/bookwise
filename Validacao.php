@@ -1,7 +1,7 @@
 <?php
 
 class Validacao {
-    public $validacoes;
+    public $validacoes = [];
 
     public static function validar($regras, $dados) 
     {
@@ -31,13 +31,13 @@ class Validacao {
 
     private function required($campo, $valor) {
         if (strlen($valor) == 0) {
-            $this->validacoes []= "O $campo é obrigatório!";
+            $this->validacoes []= "O campo $campo é obrigatório!";
         }
     }
 
     private function email ($campo, $valor) {
         if (! filter_var($valor, FILTER_VALIDATE_EMAIL)) {
-            $this->validacoes []= "O $campo é inválido!";
+            $this->validacoes []= "O campo $campo é inválido!";
         }
     }
 
@@ -49,24 +49,29 @@ class Validacao {
 
     private function min ($min, $campo, $valor) {
         if (strlen($valor) <= $min) {
-            $this->validacoes []= "O $campo precisa ter no mínimo $min caracteres!";
+            $this->validacoes []= "A $campo precisa ter no mínimo $min caracteres!";
         }
     }
 
     private function max ($max, $campo, $valor) {
         if (strlen($valor) > $max) {
-            $this->validacoes []= "O $campo precisa ter no máximo $max caracteres!";
+            $this->validacoes []= "A $campo precisa ter no máximo $max caracteres!";
         }
     }
 
     private function strong ($campo, $valor) {
         if (! strpbrk($valor, '!@#$%ˆ&*()')) {
-            $this->validacoes []= "O $campo precisa ter um caracter especial";
+            $this->validacoes []= "A $campo precisa ter um caracter especial";
         }
     }
 
-    public function naoPassou() {
-        $_SESSION['validacoes'] = $this->validacoes;
-        return $this->validacoes != null;
+    public function naoPassou($nomeCustomizado = null) {
+        $chave = 'validacoes';
+        if ($nomeCustomizado) {
+            $chave .= '_'. $nomeCustomizado;
+        }
+
+        flash()->push($chave, $this->validacoes);
+        return sizeof($this->validacoes) > 0;
     }
 }

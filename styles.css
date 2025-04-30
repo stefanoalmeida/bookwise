@@ -116,3 +116,12 @@ section {
 #card-description {
     margin-top: 12px;
 }
+
+#mensagem {
+    background-color: springgreen;
+    color: white;
+
+    padding: 12px;
+    border-radius: 4px;
+    width: 100%;
+}

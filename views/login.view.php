@@ -17,7 +17,7 @@
        padding: 12px;
    }
 
-   #form-registro {
+   form{
        display: flex;
        flex-direction: column;
        gap: 8px;
@@ -27,39 +27,41 @@
        width: 100%;
    }
 
-   #mensagem {
-       background-color: springgreen;
-       color: white;
-
-       padding: 12px;
-       border-radius: 4px;
-       width: 100%;
-   }
-
 </style>
 
 <div id="wrapper">
     <div>
         <h2>Login</h2>
-        <form action="">
-            <input type="email" name="email" placeholder="Digite seu e-mail">
-            <input type="password" name="senha" placeholder="Digite sua senha">
-            <button type="submit">Logar</button>
+        <form action="/login" method="post">
+        <?php if ($validacoes = flash()->get('validacoes_login')) :?>
+                <div>
+                    <ul>
+                        <li>Por favor revise os dados digitados!</li>
+                        <?php foreach($validacoes as $validacao) :?>
+                            <li><?= $validacao ?></li>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            <?php endif ?>
+            <div class="form">
+                <label for="email">E-mail</label>
+                <input type="text" name="email" placeholder="Digite o seu email">
+            </div>
+            <div class="form">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" placeholder="Digite sua senha">
+            </div>
+            <button type="submit" class="form">Logar</button>
         </form>
     </div>
     <div>
         <h2>Registro</h2>
-        <form action="/registrar" id="form-registro" method="post">
-            <?php if (isset($mensagem) && strlen($mensagem) > 0):?>
-                <div id="mensagem">
-                    <?= $mensagem ?>
-                </div>
-            <?php endif ?>
-            <?php if (isset($_SESSION['validacoes']) && sizeof($_SESSION['validacoes'])) :?>
+        <form action="/registrar" method="post">
+            <?php if ($validacoes = flash()->get('validacoes_registrar')) :?>
                 <div>
                     <ul>
                         <li>Por favor revise os dados digitados!</li>
-                        <?php foreach($_SESSION['validacoes'] as $validacao) :?>
+                        <?php foreach($validacoes as $validacao) :?>
                             <li><?= $validacao ?></li>
                         <?php endforeach ?>
                     </ul>
