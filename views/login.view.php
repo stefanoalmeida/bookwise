@@ -36,7 +36,7 @@
         <?php if ($validacoes = flash()->get('validacoes_login')) :?>
                 <div>
                     <ul>
-                        <li>Por favor revise os dados digitados!</li>
+                        <li>Wooops, acho que deu ruim hein?! 😬</li>
                         <?php foreach($validacoes as $validacao) :?>
                             <li><?= $validacao ?></li>
                         <?php endforeach ?>
@@ -60,7 +60,7 @@
             <?php if ($validacoes = flash()->get('validacoes_registrar')) :?>
                 <div>
                     <ul>
-                        <li>Por favor revise os dados digitados!</li>
+                        <li>PWooops, acho que deu ruim hein?! 😬</li>
                         <?php foreach($validacoes as $validacao) :?>
                             <li><?= $validacao ?></li>
                         <?php endforeach ?>

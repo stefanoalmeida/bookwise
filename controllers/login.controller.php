@@ -16,12 +16,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $usuario = $DB->query(
-        query: "SELECT * FROM usuarios WHERE email = :email AND senha = :senha",
+        query: "SELECT * FROM usuarios WHERE email = :email",
         class: Usuario::class,
-        params: compact('email', 'senha')
+        params: compact('email')
     )->fetch();
 
     if ($usuario) {
+        if (!password_verify($senha, $usuario->senha)) {
+            flash()->push('validacoes_login', ['Usuário ou senha estão incorretos!']);
+            header('Location: /login');
+            exit();
+        }
+
         $_SESSION['auth'] = $usuario;
         flash()->push('mensagem', "Seja bem vindo {$usuario->nome}!");
         header('Location: /');
