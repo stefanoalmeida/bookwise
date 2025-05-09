@@ -21,10 +21,18 @@
        display: flex;
        flex-direction: column;
        gap: 8px;
+
+       padding: 12px;
    }
 
-   .form {
+   form input {
        width: 100%;
+   }
+
+   form button {
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
    }
 
 </style>
@@ -43,15 +51,15 @@
                     </ul>
                 </div>
             <?php endif ?>
-            <div class="form">
+            <div>
                 <label for="email">E-mail</label>
                 <input type="text" name="email" placeholder="Digite o seu email">
             </div>
-            <div class="form">
+            <div>
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" placeholder="Digite sua senha">
             </div>
-            <button type="submit" class="form">Logar</button>
+            <button type="submit">Logar</button>
         </form>
     </div>
     <div>
@@ -60,30 +68,30 @@
             <?php if ($validacoes = flash()->get('validacoes_registrar')) :?>
                 <div>
                     <ul>
-                        <li>PWooops, acho que deu ruim hein?! 😬</li>
+                        <li>Wooops, acho que deu ruim hein?! 😬</li>
                         <?php foreach($validacoes as $validacao) :?>
                             <li><?= $validacao ?></li>
                         <?php endforeach ?>
                     </ul>
                 </div>
             <?php endif ?>
-            <div class="form">
+            <div>
                 <label for="name">Nome</label>
                 <input type="text" name="nome" placeholder="Digite seu nome">
             </div>
-            <div class="form">
+            <div>
                 <label for="name">Email</label>
                 <input type="text" name="email" placeholder="Digite seu email">
             </div>
-            <div class="form">
+            <div>
                 <label for="email_confirmacao">Confirme seu e-mail</label>
                 <input type="text" name="email_confirmacao" placeholder="Confirme o seu email">
             </div>
-            <div class="form">
+            <div>
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" placeholder="Digite sua senha">
             </div>
-            <button type="submit" class="form">Registrar</button>
+            <button type="submit">Registrar</button>
         </form>
     </div>
 
