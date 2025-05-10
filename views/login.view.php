@@ -20,7 +20,7 @@
                 <label for="senha">Senha</label>
                 <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="password" name="senha" placeholder="Digite sua senha">
             </div>
-            <button class="p-3 rounded-[8px] cursor-pointer bg-green-600 text-white hover:bg-green-500" type="submit">Logar</button>
+            <button class="p-3 rounded-[8px] cursor-pointer bg-emerald-700 text-white font-bold hover:text-yellow-400 hover:bg-emerald-600" type="submit">Logar</button>
         </form>
     </div>
     <div class="border rounded-[8px]">
@@ -52,7 +52,7 @@
                 <label for="senha">Senha</label>
                 <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="password" name="senha" placeholder="Digite sua senha">
             </div>
-            <button class="p-3 rounded-[8px] cursor-pointer bg-green-600 text-white hover:bg-green-500" type="submit">Registrar</button>
+            <button class="p-3 rounded-[8px] cursor-pointer bg-emerald-700 text-white font-bold hover:text-yellow-500 hover:bg-emerald-600" type="submit">Registrar</button>
         </form>
     </div>
 

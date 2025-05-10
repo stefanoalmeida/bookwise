@@ -40,7 +40,7 @@
                 <label for="descricao">Descrição</label>
                 <textarea class="w-full border p-3 text-gray-700 rounded-[8px]" type="text" name="descricao"></textarea>
             </div>
-            <button class="p-3 rounded-[8px] cursor-pointer bg-green-600 text-white hover:bg-green-500" type="submit">Cadastrar</button>
+            <button class="p-3 rounded-[8px] cursor-pointer bg-emerald-700 text-white font-bold hover:text-yellow-500 hover:bg-emerald-600" type="submit">Cadastrar</button>
         </form>
     </div>
 

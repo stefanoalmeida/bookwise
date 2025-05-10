@@ -14,20 +14,20 @@
 
 <body>
     <header>
-        <nav class="w-full h-[60px] py-[12px] px-[24px] bg-slate-900 text-gray-300 flex items-center justify-between">
+        <nav class="w-full h-[60px] py-[12px] px-[24px] bg-emerald-800 text-white font-bold flex items-center justify-between">
             <div>BookWise</div>
             <ul class="flex items-center gap-[12px]">
-                <li><a class="hover:text-green-500" href="/">Explorar</a></li>
+                <li><a class="hover:text-yellow-400" href="/">Explorar</a></li>
                 <?php if (auth()) : ?>
                     <span>|</span>
-                    <li><a class="hover:text-green-500" href="/meus-livros">Meus Livros</a></li>
+                    <li><a class="hover:text-yellow-400" href="/meus-livros">Meus Livros</a></li>
                 <?php endif ?>
             </ul>
             <ul>
                 <?php if (auth()) : ?>
-                    <li><a class="hover:text-green-500" href="/logout">Oi, <?= auth()->nome ?></a></li>
+                    <li><a class="hover:text-yellow-400" href="/logout">Oi, <?= auth()->nome ?></a></li>
                 <?php else : ?>
-                    <li><a class="hover:text-green-500" href="/login">Fazer Login</a></li>
+                    <li><a class="hover:text-yellow-400" href="/login">Fazer Login</a></li>
                 <?php endif ?>
             </ul>
         </nav>
@@ -35,7 +35,7 @@
 
     <main class="h-screen overflow-auto bg-gray-200 p-4">
         <?php if ($mensagem = flash()->get('mensagem')) : ?>
-            <div class="w-full p-[12px] rounded-[4px] text-white bg-green-400">
+            <div class="w-full p-[12px] rounded-[4px] text-white bg-emerald-700 text-yellow-400">
                 <?= $mensagem ?>
             </div>
         <?php endif ?>
