@@ -1,70 +1,12 @@
-<style>
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    #wrapper {
-        display: grid;
-        grid-template-columns: 1fr 500px;
-        gap: 12px;
-        padding: 12px 24px;
-    }
-
-    #div1 {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    #formWrapper  {
-        border: 1px solid #252424;
-        border-radius: 8px;
-
-        width: 500px;    }
-
-    #formWrapper > h2 {
-        border-bottom: 1px solid #252424;
-        padding: 12px;
-    }
-
-    #form {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        padding: 12px;
-    }
-
-    #form input, textarea {
-        width: 100%;
-    }
-
-    #form textarea {
-        border-radius: 8px;
-        height: 100px;
-        resize: none;
-
-        padding: 8px;
-    }
-
-    #form button {
-        padding: 12px;
-        border-radius: 8px;
-        cursor: pointer;
-    }
-
-</style>
-
-<div id="wrapper">
-    <div id="div1">
+<div class="grid grid-cols-2 gap-[12px] py-[12px] px-[24px]">
+    <div class="flex flex-col gap-[8px]">
         <?php foreach ($livros as $livro) {
             require 'partials/_livro.php';
         } ?>
     </div>
-    <div id="formWrapper">
-        <h2>Cadastrar um novo livro</h2>
-        <form action="/criar-livro" method="post" id="form" enctype="multipart/form-data">
+    <div class="border rounded-[8px] h-fit">
+        <h2 class="p-[12px]">Cadastrar um novo livro</h2>
+        <form action="/criar-livro" method="post" class="flex flex-col gap-[8px] p-[12px]" enctype="multipart/form-data">
             <?php if ($validacoes = flash()->get('validacoes')) : ?>
                 <div>
                     <ul>
@@ -76,21 +18,21 @@
                 </div>
             <?php endif ?>
             <div>
-                <input type="file" name="imagem">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="file" name="imagem">
             </div>
             <div>
                 <label for="titulo">Titulo</label>
-                <input type="text" name="titulo">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="text" name="titulo">
             </div>
             <div>
                 <label for="autor">Autor</label>
-                <input type="text" name="autor">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="text" name="autor">
             </div>
             <div>
                 <label for="descricao">Descrição</label>
-                <textarea type="text" name="descricao"></textarea>
+                <textarea class="w-full border p-3 text-gray-700 rounded-[8px]" type="text" name="descricao"></textarea>
             </div>
-            <button type="submit">Cadastrar</button>
+            <button class="p-3 rounded-[8px] cursor-pointer bg-green-600 text-white hover:bg-green-500" type="submit">Cadastrar</button>
         </form>
     </div>
 

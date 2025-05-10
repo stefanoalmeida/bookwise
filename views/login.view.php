@@ -1,46 +1,7 @@
-<style>
-   #wrapper {
-       display: grid;
-       grid-template-columns: 1fr 1fr;
-       gap: 12px;
-
-       padding: 12px 24px;
-   }
-
-   #wrapper > div {
-       border: 1px solid #252424;
-       border-radius: 8px;
-   }
-
-   #wrapper > div > h2 {
-       border-bottom: 1px solid #252424;
-       padding: 12px;
-   }
-
-   form{
-       display: flex;
-       flex-direction: column;
-       gap: 8px;
-
-       padding: 12px;
-   }
-
-   form input {
-       width: 100%;
-   }
-
-   form button {
-    padding: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-   }
-
-</style>
-
-<div id="wrapper">
-    <div>
-        <h2>Login</h2>
-        <form action="/login" method="post">
+<div class="grid grid-cols-2 gap-[12px] py-[12px] px-[24px]">
+    <div class="border rounded-[8px]">
+        <h2 class="p-[12px]">Login</h2>
+        <form action="/login" method="post" class="flex flex-col gap-[8px] p-[12px]">
         <?php if ($validacoes = flash()->get('validacoes_login')) :?>
                 <div>
                     <ul>
@@ -53,18 +14,18 @@
             <?php endif ?>
             <div>
                 <label for="email">E-mail</label>
-                <input type="text" name="email" placeholder="Digite o seu email">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="text" name="email" placeholder="Digite o seu email">
             </div>
             <div>
                 <label for="senha">Senha</label>
-                <input type="password" name="senha" placeholder="Digite sua senha">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="password" name="senha" placeholder="Digite sua senha">
             </div>
-            <button type="submit">Logar</button>
+            <button class="p-3 rounded-[8px] cursor-pointer bg-green-600 text-white hover:bg-green-500" type="submit">Logar</button>
         </form>
     </div>
-    <div>
-        <h2>Registro</h2>
-        <form action="/registrar" method="post">
+    <div class="border rounded-[8px]">
+        <h2 class="p-[12px]">Registro</h2>
+        <form action="/registrar" method="post" class="flex flex-col gap-[8px] p-[12px]">
             <?php if ($validacoes = flash()->get('validacoes_registrar')) :?>
                 <div>
                     <ul>
@@ -77,21 +38,21 @@
             <?php endif ?>
             <div>
                 <label for="name">Nome</label>
-                <input type="text" name="nome" placeholder="Digite seu nome">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="text" name="nome" placeholder="Digite seu nome">
             </div>
             <div>
                 <label for="name">Email</label>
-                <input type="text" name="email" placeholder="Digite seu email">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="text" name="email" placeholder="Digite seu email">
             </div>
             <div>
                 <label for="email_confirmacao">Confirme seu e-mail</label>
-                <input type="text" name="email_confirmacao" placeholder="Confirme o seu email">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="text" name="email_confirmacao" placeholder="Confirme o seu email">
             </div>
             <div>
                 <label for="senha">Senha</label>
-                <input type="password" name="senha" placeholder="Digite sua senha">
+                <input class="w-full border p-3 text-gray-700 rounded-[8px]" type="password" name="senha" placeholder="Digite sua senha">
             </div>
-            <button type="submit">Registrar</button>
+            <button class="p-3 rounded-[8px] cursor-pointer bg-green-600 text-white hover:bg-green-500" type="submit">Registrar</button>
         </form>
     </div>
 
