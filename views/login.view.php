@@ -4,7 +4,7 @@
         <form action="/login" method="post" class="flex flex-col gap-[8px] p-[12px]">
         <?php if ($validacoes = flash()->get('validacoes_login')) :?>
                 <div>
-                    <ul>
+                    <ul class="bg-red-600 text-white p-4 rounded-[8px]">
                         <li>Wooops, acho que deu ruim hein?! 😬</li>
                         <?php foreach($validacoes as $validacao) :?>
                             <li><?= $validacao ?></li>
@@ -28,7 +28,7 @@
         <form action="/registrar" method="post" class="flex flex-col gap-[8px] p-[12px]">
             <?php if ($validacoes = flash()->get('validacoes_registrar')) :?>
                 <div>
-                    <ul>
+                    <ul class="bg-red-600 text-white p-4 rounded-[8px]">
                         <li>Wooops, acho que deu ruim hein?! 😬</li>
                         <?php foreach($validacoes as $validacao) :?>
                             <li><?= $validacao ?></li>

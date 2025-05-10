@@ -43,43 +43,43 @@ class Validacao {
         )->fetch();
 
         if ($resultado) {
-            $this->validacoes[] = "O campo $campo já está sendo utilizado!";
+            $this->validacoes[] = "O campo $campo já está sendo utilizado;";
         }
     }
 
     private function required($campo, $valor) {
         if (strlen($valor) == 0) {
-            $this->validacoes []= "O campo $campo é obrigatório!";
+            $this->validacoes []= "O campo $campo é obrigatório;";
         }
     }
 
     private function email ($campo, $valor) {
         if (! filter_var($valor, FILTER_VALIDATE_EMAIL)) {
-            $this->validacoes []= "O campo $campo é inválido!";
+            $this->validacoes []= "O campo $campo é inválido;";
         }
     }
 
     private function confirmed ($campo, $valor, $valorDeConfirmacao) {
         if ($valor != $valorDeConfirmacao) {
-            $this->validacoes []= "O $campo de confirmação está diferente!";
+            $this->validacoes []= "O $campo de confirmação está diferente;";
         }
     }
 
     private function min ($min, $campo, $valor) {
         if (strlen($valor) <= $min) {
-            $this->validacoes []= "A $campo precisa ter no mínimo $min caracteres!";
+            $this->validacoes []= "A $campo precisa ter no mínimo $min caracteres;";
         }
     }
 
     private function max ($max, $campo, $valor) {
         if (strlen($valor) > $max) {
-            $this->validacoes []= "A $campo precisa ter no máximo $max caracteres!";
+            $this->validacoes []= "A $campo precisa ter no máximo $max caracteres;";
         }
     }
 
     private function strong ($campo, $valor) {
         if (! strpbrk($valor, '!@#$%ˆ&*()')) {
-            $this->validacoes []= "A $campo precisa ter um caracter especial";
+            $this->validacoes []= "A $campo precisa ter um caracter especial;";
         }
     }
 
