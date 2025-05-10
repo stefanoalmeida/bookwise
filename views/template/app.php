@@ -38,7 +38,7 @@
                 <?= $mensagem ?>
             </div>
         <?php endif ?>
-        <?php require_once "views/{$view}.view.php"; ?>
+        <?php require_once "../views/{$view}.view.php"; ?>
     </main>
 
     <!--<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
